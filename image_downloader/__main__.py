@@ -1,6 +1,10 @@
 """
 This module image_downloader takes a plaintext file as an argument and downloads all images, storing them on the local hard disk.
 This main function is called as script and uses the module image_downloader.
+
+Usage:
+       image_downloader -i <inputfile> -o <outputpath>
+
 """
 
 #from image_downloader import image_downloader
@@ -14,11 +18,11 @@ def main(argv=None):
    try:
       opts, args = getopt.getopt(argv,"hi:o:",["ifile=","opath="])
    except getopt.GetoptError:
-      print('imagedownloader -i <inputfile> -o <outputpath>')
+      print('image_downloader -i <inputfile> -o <outputpath>')
       sys.exit(2)
    for opt, arg in opts:
       if opt == '-h':
-         print('imagedownloader -i <inputfile> -o <outputpath>')
+         print('image_downloader -i <inputfile> -o <outputpath>')
          sys.exit()
       elif opt in ("-i", "--ifile"):
          url_list_file = arg
