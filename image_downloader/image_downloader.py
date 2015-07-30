@@ -41,9 +41,9 @@ class ImageDownloader:
         :param url_file_name: file containing list of urls separated by new lines  
         """
         self.__url_file_name= url_file_name
-        self.__read_inputfile() 
+        self.__read_url_file() 
 
-    def __read_inputfile(self):
+    def __read_url_file(self):
         """
         Read a plain file (e.g. *.txt),
 	
