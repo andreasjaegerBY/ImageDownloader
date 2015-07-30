@@ -2,6 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 This module takes a plain file of urls as an argument and downloads all images, storing them on the local hard disk.
+
+Within the following conditions this module supposed to work:
+The module is to be used to sequentially downlowed files of a size about 10MB each. 
+The module is NOT designed to nandle huge files or huge list of files ot to split op this process in threads.
+Also the available disk space is not considered. More exceptions are not handled.
+This details can be further implemented or added to this class if required.
 """
 
 from __future__ import division, print_function, absolute_import
