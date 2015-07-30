@@ -3,8 +3,10 @@ This module image_downloader takes a plaintext file as an argument and downloads
 This main function is called as script and uses the module image_downloader.
 """
 
-from downloadimg import download_img
+#from image_downloader import image_downloader
+import image_downloader
 import sys, getopt
+
 
 def main(argv=None):
    if argv is None:
@@ -28,7 +30,7 @@ def main(argv=None):
         url_list_file, download_path
    except UnboundLocalError, u: 
         usage()
-   download_img.run(url_list_file,download_path)
+   image_downloader.download(url_list_file,download_path)
 
 def usage():
     print(__doc__)
