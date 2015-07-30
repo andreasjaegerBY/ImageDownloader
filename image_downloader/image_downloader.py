@@ -87,7 +87,7 @@ class ImageDownloader:
 
 
 def run(url_list_file="list.txt",download_path="./"):
-    downloader=URLDownloader(url_list_file)
+    downloader=ImageDownloader(url_list_file)
     downloader.execute(download_path)
     downloader.print_statistics()
 
