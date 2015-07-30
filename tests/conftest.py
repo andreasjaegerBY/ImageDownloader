@@ -9,4 +9,6 @@
 """
 from __future__ import print_function, absolute_import, division
 
-import pytest
+from image_downloader import image_downloader
+
+image_downloader.download("image_downloader/list.txt","./") 
