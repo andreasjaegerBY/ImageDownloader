@@ -29,3 +29,22 @@ class ImageDownloader:
         """
         Constructor with the plain file, that contains the url list, as parameter is used.
         """
+
+    def __read_urls_inputfile(self,plain_url_file_name):
+
+    def __download_url(self, url, output_file_name):
+        """
+        Download a single image from url and write it into a valid output file
+        """
+
+    def print_statistics(self):
+        """
+        Prints information about requested and downloaded images
+        """
+
+    def execute(self, path):
+        """
+        Downloads images to the path folder.
+        For the naming: input list file name is used as name and the numbering in the list order. 
+        The file is stored in path/<name>_<number>.jpg 
+        """
