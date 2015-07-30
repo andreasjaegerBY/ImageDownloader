@@ -27,14 +27,10 @@ class ImageDownloader:
 	
     :Attributes
         __N_stored_files:          Number of stored files
-        __N_files_onlist:          Number of requested files 
-        __replace_existing_files:  Replace if the file already exist, set to True by default
         __url_list:                list of urls
         __urls_file_name:          file name containing the urls
     """
     __N_stored_files = 0
-    __N_files_onlist = 0
-    __replace_existing_files = True
     __url_list = []
     __urls_file_name=""
 
@@ -45,9 +41,9 @@ class ImageDownloader:
 	:param urls_file_name: file containing list of urls separated by new lines  
         """
         self.__urls_file_name= urls_file_name
-        self.__read_inputfile(self.__urls_file_name) 
+        self.__read_inputfile() 
 
-    def __read_inputfile(self,urls_file_name):
+    def __read_inputfile(self):
         """
         Read a plain file (e.g. *.txt),
 	
@@ -57,13 +53,9 @@ class ImageDownloader:
         Universal newlines is used with text streams in which all of the following are recognized as ending a line: 
         The Unix end-of-line convention '\n', the Windows convention '\r\n', and the old Macintosh convention '\r'. 
         """
-        links_file = open(urls_file_name, 'r')
-        lines = links_file.read().splitlines()
-        __N_files_onlist=0
-        for link in lines:
-           self.__N_files_onlist+=1
-           self.__url_list.append(link);
-           links_file.close()
+        links_file = open(self.__urls_file_name, 'r')
+        self.__url_list = links_file.read().splitlines()
+        links_file.close()
 
     def __download_url(self, url, output):
         """
@@ -72,27 +64,18 @@ class ImageDownloader:
 	:param url: a valid url
 	:param output: full name of the output file, where the image is stored
 
-        The exceptions for HTTPError and  URLError are handeled: 
-        in this case the image is not downloaded, but the remaining downloads will continue.
-        Often URLError is raised because there is no network connection
-        and if a server is unable to fulfil the request a HTTPError is raised.
-        E.g. see https://docs.python.org/2/howto/urllib2.html
         """
         try:
            response = urlopen(url)
         except HTTPError as e:
-           print('The server couldn\'t fulfill the request.')
-           print('Error code: ', e.code)
+           #The server couldn't fulfill the request.
         except URLError as e:
-           print('Connection to the server failed.')
-           print('Reason: ', e.reason)
+           #Connection to the server failed
         else:
-        # everything is fine
-           if (self.__replace_existing_files==True):
-              new_file = open(output, "w")
-              new_file.write(response.read())
-              self.__N_stored_files+=1
-              new_file.close()
+           new_file = open(output, "w")
+           new_file.write(response.read())
+           self.__N_stored_files+=1
+           new_file.close()
 
     def print_statistics(self):
         """
