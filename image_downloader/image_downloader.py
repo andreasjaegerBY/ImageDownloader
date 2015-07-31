@@ -101,9 +101,10 @@ class ImageDownloader:
         self.__N_stored_files=0
         count=0
         for url_name in self.__url_list:
+	   count+=1
            base_name=os.path.basename(self.__url_file_name)
            base_name_noextention=os.path.splitext(base_name)[0]
-           output_file_name = os.path.join(path,"{0}_{1}.jpg".format(base_name_noextention,++count))
+           output_file_name = os.path.join(path,"{0}_{1}.jpg".format(base_name_noextention,count))
            self.__download_url(url_name, output_file_name)
 
 
