@@ -26,9 +26,13 @@ Limitations
 
 It has following limitations:
 	-Files are downloaded sequentially.
+
 	-Only files of relatively small size are guranteed to be downloaded in a certain time limit. 
+
 	-Exceptions are not handled.
+
 	-New files are stored under path/<name>_<number>.jpg
+
 	-This limitations can be further extended or added to this class if required.
 
 
