@@ -9,9 +9,9 @@ Usage
 ===========
 
 The module can be excecuted as console skript.
-after:
+To make the command skript available execute:
        python setup.py install 
-To execute, run: 
+For execution run: 
        image_downloader -i <inputfile> -o <outputpath>
 Examples
 ===========
