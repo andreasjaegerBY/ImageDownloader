@@ -9,16 +9,24 @@ Usage
 ===========
 
 The module can be excecuted as console skript.
-To make the command skript available execute:
-       python setup.py install 
 For execution run: 
        image_downloader -i <inputfile> -o <outputpath>
+
+
 Examples
 ===========
 Run:
        image_downloader -i image_downloader/list.txt -o image_downloader/
 This will create the following images:
        image_downloader/list_1.jpg, image_downloader/list_2.jpg, image_downloader/list_3.jpg, image_downloader/list_3.jpg
+
+Requirements to run the console script
+===========
+One needs to install virtualenv before cloning the repository:
+	virtualenv venv
+
+To make the command skript available execute, inside the cloned repository:
+       python setup.py install 
 
        
 Limitations
