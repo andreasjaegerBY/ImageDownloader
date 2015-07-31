@@ -15,20 +15,21 @@ one can execute:
        image_downloader -i <inputfile> -o <outputpath>
 Examples
 ===========
+Run:
        image_downloader -i image_downloader/list.txt -o image_downloader/
-       will create the following images:
-       path/list_1.jpg, path/list_2.jpg, path/list_3.jpg, path/list_3.jpg
+This will create the following images:
+       image_downloader/list_1.jpg, image_downloader/list_2.jpg, image_downloader/list_3.jpg, image_downloader/list_3.jpg
 
        
 Limitations
 ===========
 
 It has following limitations:
--Files are downloaded sequentially.
--Only files of relatively small size are guranteed to be downloaded in a certain time limit. 
--Exceptions are not handled.
--New files are stored under path/<name>_<number>.jpg
--This limitations can be further extended or added to this class if required.
+	-Files are downloaded sequentially.
+	-Only files of relatively small size are guranteed to be downloaded in a certain time limit. 
+	-Exceptions are not handled.
+	-New files are stored under path/<name>_<number>.jpg
+	-This limitations can be further extended or added to this class if required.
 
 
 Note
