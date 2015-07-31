@@ -7,6 +7,7 @@ It has following limitations:
 -Files are downloaded sequentially.
 -Only files of relatively small size are guranteed to be downloaded in a certain time limit. 
 -Exceptions are not handled.
+-New files are stored under path/<name>_<number>.jpg
 -This limitations can be further extended or added to this class if required.
 """
 
@@ -26,9 +27,9 @@ class ImageDownloader:
     Class for downloading images using an url list and storing them in a local folder.
 
     :Attributes
-        __N_stored_files:          Number of stored files
-        __url_list:                list of urls
-        __url_file_name:           file name containing the urls
+        :__N_stored_files:          Number of stored files
+        :__url_list:                list of urls
+        :__url_file_name:           file name containing the urls
     """
     __N_stored_files = 0
     __url_list = []

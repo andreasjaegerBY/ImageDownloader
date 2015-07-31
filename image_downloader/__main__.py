@@ -1,5 +1,5 @@
 """
-This module image_downloader takes a plaintext file as an argument and downloads all images, storing them on the local hard disk.
+This module image_downloader takes an url file as an argument and downloads all images, storing them on the local hard disk.
 This main function is called as script and uses the module image_downloader.
 
 Usage:
@@ -7,7 +7,6 @@ Usage:
 
 """
 
-#from image_downloader import image_downloader
 import image_downloader
 import sys, getopt
 

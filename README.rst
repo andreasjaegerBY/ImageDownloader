@@ -2,14 +2,33 @@
 image_downloader
 ================
 
+This module takes an url file as an argument and downloads all images, storing them on the local hard disk.
 
-Add a short description here!
 
-
-Description
+Usage
 ===========
 
-A LONGER DESCRIPTION OF YOUR PROJECT GOES HERE...
+The module can be excecuted as console skript:
+after:
+       python setup.py install 
+one can execute: 
+       image_downloader -i <inputfile> -o <outputpath>
+Examples
+===========
+       image_downloader -i image_downloader/list.txt -o image_downloader/
+       will create the following images:
+       path/list_1.jpg, path/list_2.jpg, path/list_3.jpg, path/list_3.jpg
+
+       
+Limitations
+===========
+
+It has following limitations:
+-Files are downloaded sequentially.
+-Only files of relatively small size are guranteed to be downloaded in a certain time limit. 
+-Exceptions are not handled.
+-New files are stored under path/<name>_<number>.jpg
+-This limitations can be further extended or added to this class if required.
 
 
 Note
