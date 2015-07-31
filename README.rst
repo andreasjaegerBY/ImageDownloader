@@ -8,10 +8,10 @@ This module takes an url file as an argument and downloads all images, storing t
 Usage
 ===========
 
-The module can be excecuted as console skript:
+The module can be excecuted as console skript.
 after:
        python setup.py install 
-one can execute: 
+To execute, run: 
        image_downloader -i <inputfile> -o <outputpath>
 Examples
 ===========
