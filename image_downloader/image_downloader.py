@@ -4,17 +4,17 @@
 This module takes urls from a file and downloads them to a local path.
 
 It has following limitations:
--Files are downloaded sequentially (no threads are used)
+-Files are downloaded sequentially (no threads are used).
 -Only files of relatively small size are guaranteed to be downloaded in a certain time limit. 
 -Following exceptions are not handled: 
         -Invalid urls raise ValueError
 	-Url-list file needs to be valid and urls separated by new lines
-	-Accessing and downloading the url needs to be further handled.
-	-Exceptions when creating and accessing files need to be handled.
+	-Accessing and downloading the url needs to be further handled
+	-Exceptions when creating and accessing files need to be handled
 -New files are stored under path/<url_file_name>_<url_list_number>.jpg
 	This guarantees correct matching, without loss of information.
 
--This limitations can be further extended and new requirements added and implemented in this class.
+This limitations can be further extended and new requirements added and implemented in this class.
 """
 
 from __future__ import  print_function, absolute_import
@@ -41,7 +41,7 @@ class ImageDownloader:
 
     def __init__(self, url_file_name):
         """
-        Constructor.
+        Constructor
 
         :param url_file_name: file containing list of urls separated by new lines  
         """
@@ -50,8 +50,7 @@ class ImageDownloader:
 
     def __read_url_file(self):
         """
-        Read the url file
-	
+        Read the url file.
         """
         url_file = open(self.__url_file_name, 'r')
         self.__url_list = url_file.read().splitlines()
@@ -110,10 +109,10 @@ class ImageDownloader:
 
 def download(urls="list.txt",path="./"):
     """
-    Download images using the url list and store them into the path folder.
+    Download files using the url list and store them into the path folder.
     
     :param urls: plain text file containing urls separated by new lines.
-    :param path: folder path, where the images should be stored
+    :param path: folder path, where the files should be stored
     """
     downloader=ImageDownloader(urls)
     downloader.execute(path)
