@@ -22,10 +22,10 @@ This will create the following images:
 
 Requirements to run the console script
 ===========
-One needs to install virtualenv before cloning the repository:
+Requires virtualenv before cloning the repository:
 	virtualenv venv
 
-To make the command skript available execute, inside the cloned repository:
+To make the command script available, execute this inside the cloned repository:
        python setup.py install 
 
        
@@ -38,10 +38,10 @@ It has following limitations:
 	Following exceptions are not handled: 
         	-Invalid urls raise ValueError
 		-Url-list file needs to be valid and urls separated by new lines
-		-Accessing and downloading the url needs to be further handled.
-		-Exceptions when creating and accessing files need to be handled.
+		-Accessing and downloading the url needs to be further handled
+		-Exceptions when creating and accessing files need to be handled
 	New files are stored under path/<url_file_name>_<url_list_number>.jpg
-		-This guarantees correct matching, without loss of information.
+		-This guarantees correct matching, without loss of information
 
 	This limitations can be further extended and new requirements added and implemented in this class.
 
