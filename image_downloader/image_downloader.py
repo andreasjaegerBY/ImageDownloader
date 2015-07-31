@@ -1,22 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This module takes an url file as an argument and downloads all images, storing them on the local hard disk.
+This module takes urls from a file and downloads them to a local path.
 
 It has following limitations:
--Files are downloaded sequentially.
--Only files of relatively small size are guranteed to be downloaded in a certain time limit. 
--Exceptions are not handled.
--New files are stored under path/<name>_<number>.jpg
--This limitations can be further extended or added to this class if required.
+-Files are downloaded sequentially (no threads are used)
+-Only files of relatively small size are guaranteed to be downloaded in a certain time limit. 
+-Following exceptions are not handled: 
+        -Invalid urls raise ValueError
+	-Url-list file needs to be valid and urls separated by new lines
+	-Accessing and downloading the url needs to be further handled.
+	-Exceptions when creating and accessing files need to be handled.
+-New files are stored under path/<url_file_name>_<url_list_number>.jpg
+	This guarantees correct matching, without loss of information.
+
+-This limitations can be further extended and new requirements added and implemented in this class.
 """
 
 from __future__ import  print_function, absolute_import
-
-import os.path
-from urllib2 import urlopen, URLError, HTTPError
-
 from image_downloader import __version__
+from urllib2 import urlopen, URLError, HTTPError
+import os.path
 
 __author__ = "Andreas Jaeger"
 __copyright__ = "Andreas Jaeger"
@@ -46,12 +50,12 @@ class ImageDownloader:
 
     def __read_url_file(self):
         """
-        Read a plain file (e.g. *.txt),
+        Read the url file
 	
-        :param url_file_name: file containing list of urls separated by new lines  
         """
         url_file = open(self.__url_file_name, 'r')
         self.__url_list = url_file.read().splitlines()
+        self.__url_list = filter(None, self.__url_list)
         url_file.close()
 
     def __download_url(self, url, output):
@@ -59,7 +63,7 @@ class ImageDownloader:
         Download one url file and write it into output.
         
         :param url: a valid url
-        :param output: full name of the output file, where the image is will be stored
+        :param output: full name of the output file, where the file is will be stored
 
         """
         try:
@@ -86,7 +90,7 @@ class ImageDownloader:
 
     def execute(self, path):
         """
-        Downloads images to the path folder.
+        Downloads file to the path folder.
         
         :param path: path name of the folder, where to store the downloaded images
 

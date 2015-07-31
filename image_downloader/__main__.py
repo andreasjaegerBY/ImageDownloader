@@ -1,5 +1,6 @@
 """
-This module image_downloader takes an url file as an argument and downloads all images, storing them on the local hard disk.
+This module takes urls from a file and downloads them to a local path.
+
 This main function is called as script and uses the module image_downloader.
 
 Usage:
@@ -28,7 +29,7 @@ def main(argv=None):
       elif opt in ("-o", "--opath"):
          download_path = arg
       else:
-         assert False, "unhandled option"
+         assert False, "Not handled option"
    try:
         url_list_file, download_path
    except UnboundLocalError, u: 
